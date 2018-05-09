@@ -1,0 +1,179 @@
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+    <style>
+        body {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info {
+            padding-top: 15px;
+            background-color: rgba(0, 0, 0, 0.6);
+            font-family: 'Arvo', serif;
+            font-size: 20px;
+            width: 600px;
+            text-align: center;
+            margin: 15% auto;
+            min-height: 200px;
+            color: #fff;
+        }
+
+        #name {
+            padding-top: 30px;
+            padding-bottom: 40px;
+            font-size: 30px;
+            color: #f53b57;
+        }
+
+        #refresh {
+            padding: 10px;
+            cursor: pointer;
+            border: 2px solid #32ff7e;
+            border-radius: 15px;
+            font-size: 20px;
+            font-family: 'Josefin Sans', sans-serif;
+            color: #32ff7e;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        #refresh:hover {
+            border-color: #FFF;
+            color: #FFF;
+        }
+
+        .container {
+            position: absolute;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+            background: url(background.jpg) no-repeat center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .footer {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-family: 'Arvo', serif;
+            position: absolute;
+            bottom: 0;
+            font-size: 18px;
+            color: #000000;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 100%;
+        }
+
+        .footer span {
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="info">
+        INDIE BAND NAME GENERATOR
+        <div id="name"></div>
+        <a id="refresh">Try Another</a>
+    </div>
+    <div class="footer">
+        <span> Tércio Garcia © 2018</span>
+    </div>
+</div>
+</body>
+</html>
+<script>
+  //indie band generator
+  const prefixes = [
+    'The',
+    'Los'
+  ]
+
+  const first = [
+    'Parrot',
+    'Parrots',
+    'Freezer',
+    'Freezers',
+    'Pizza',
+    'Pizzas',
+    'Jelly',
+    'Jellys',
+    'Jamaica',
+    'Himalaia',
+    'Michael Douglas',
+    'Rocket',
+    'Rockets',
+    'Banana',
+    'Bananas',
+    'Honey',
+    'Black',
+    'Hot',
+    'Crystal',
+    'White',
+    'Jack',
+    'Lonely'
+  ]
+
+  const middle = [
+    ', the',
+    ' and the',
+    ' of the',
+    ' &'
+  ]
+
+  const suffixes = [
+    'Machine',
+    'Driver',
+    'Dragon',
+    'Dragons',
+    'Death Metal',
+    'Sons',
+    'Diamond',
+    'Diamonds',
+    'Blood',
+    'Suspect',
+    'Suspects',
+    'Killer',
+    'Killers',
+    'Crash',
+    'Cats'
+  ]
+
+  const getRandom = array => {
+    return array[Math.floor(Math.random() * array.length)]
+  }
+
+  const decide = () => {
+    return Math.round(Math.random()) === 1
+  }
+
+  const buildName = () => {
+    let name = ''
+    const usePrefix = decide()
+
+    if (usePrefix) {
+      name += getRandom(prefixes)
+    }
+
+    name += ' ' + getRandom(first)
+
+    if (!usePrefix && decide()) {
+      name += getRandom(middle)
+    }
+    name += ' ' + getRandom(suffixes)
+    return name.trim()
+  }
+
+  document.querySelector('#name').innerHTML = buildName()
+
+  let refreshButton = document.querySelector('#refresh')
+  refreshButton.addEventListener('click', () => {
+    document.querySelector('#name').innerHTML = buildName()
+  })
+</script>
