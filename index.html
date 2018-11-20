@@ -1,35 +1,55 @@
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Tércio Garcia">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>Indie band name generator</title>
+
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 
     <style>
         body {
+            background-color: #575F74;
             height: 100%;
             padding: 0;
             margin: 0;
         }
 
+        .container {
+            -webkit-background-size: cover;
+            background-size: cover;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url(background.jpg) no-repeat center;
+            height: 100%;
+        }
+
         .info {
-            padding-top: 15px;
+            padding: 40px 25px;
             background-color: rgba(0, 0, 0, 0.6);
             font-family: 'Arvo', serif;
             font-size: 20px;
             width: 600px;
             text-align: center;
-            margin: 15% auto;
-            min-height: 200px;
+            height: auto;
             color: #fff;
         }
 
         #name {
-            padding-top: 30px;
-            padding-bottom: 40px;
+            padding: 3px;
             font-size: 30px;
             color: #f53b57;
         }
 
         #refresh {
+            margin-top: 20px;
+        }
+
+        #refresh a {
             padding: 10px;
             cursor: pointer;
             border: 2px solid #32ff7e;
@@ -49,15 +69,6 @@
             color: #FFF;
         }
 
-        .container {
-            position: absolute;
-            -webkit-background-size: 100%;
-            background-size: 100%;
-            background: url(background.jpg) no-repeat center;
-            height: 100%;
-            width: 100%;
-        }
-
         .footer {
             padding-top: 8px;
             padding-bottom: 8px;
@@ -65,7 +76,7 @@
             position: absolute;
             bottom: 0;
             font-size: 18px;
-            color: #000000;
+            color: #BAB07F;
             background-color: rgba(0, 0, 0, 0.3);
             width: 100%;
         }
@@ -78,9 +89,11 @@
 <body>
 <div class="container">
     <div class="info">
-        INDIE BAND NAME GENERATOR
+        <div>INDIE BAND NAME GENERATOR</div>
         <div id="name"></div>
-        <a id="refresh">Try Another</a>
+        <div id="refresh">
+            <a>Try Another</a>
+        </div>
     </div>
     <div class="footer">
         <span> Tércio Garcia © 2018</span>
