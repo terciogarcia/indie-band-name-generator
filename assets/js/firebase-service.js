@@ -1,19 +1,19 @@
 class FirebaseService {
   constructor(){
     this.db = firebase.database()
-  }
+  };
 
-  getPrefixes = () => {
+  getPrefixes() {
     return new Promise((resolve, reject) => {
       this.db.ref('/prefixes').once('value').then((snapshot) => {
-        resolve(snapshot.val())
+        resolve(snapshot.val());
       }, error => {
-        reject(error)
-      })
-    })
-  }
+        reject(error);
+      });
+    });
+  };
 
-  getFirsts = () => {
+  getFirsts(){
     return new Promise((resolve, reject) => {
       this.db.ref('/firsts').once('value').then((snapshot) => {
         resolve(snapshot.val())
@@ -21,9 +21,9 @@ class FirebaseService {
         reject(error)
       })
     })
-  }
+  };
 
-  getMiddle = () => {
+  getMiddle(){
     return new Promise((resolve, reject) => {
       this.db.ref('/middle').once('value').then((snapshot) => {
         resolve(snapshot.val())
@@ -31,9 +31,9 @@ class FirebaseService {
         reject(error)
       })
     })
-  }
+  };
 
-  getSuffixes = () => {
+  getSuffixes(){
     return new Promise((resolve, reject) => {
       this.db.ref('/suffixes').once('value').then((snapshot) => {
         resolve(snapshot.val())
@@ -41,5 +41,5 @@ class FirebaseService {
         reject(error)
       })
     })
-  }
+  };
 }
