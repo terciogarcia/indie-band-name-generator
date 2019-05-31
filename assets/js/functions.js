@@ -29,26 +29,11 @@ const generateName = () => {
 
 let fbService = new FirebaseService()
 
-const loadStuff = () => {
-  return new Promise((resolve, reject) => {
-    fbService.getPrefixes().then((arr) => {
-      prefixes = arr
-    })
-
-    fbService.getFirsts().then((arr) => {
-      firsts = arr
-    })
-
-    fbService.getMiddle().then((arr) => {
-      middle = arr
-    })
-
-    fbService.getSuffixes().then((arr) => {
-      suffixes = arr
-      
-      resolve()
-    })
-  })
+const loadStuff = async () => {
+  prefixes = await fbService.getPrefixes();
+  firsts = await fbService.getFirsts();
+  middle = await fbService.getMiddle();
+  suffixes = await fbService.getSuffixes();
 }
 
 /*
