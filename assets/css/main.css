@@ -12,7 +12,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(images/background.jpg) no-repeat center;
+    background: url(../images/background.jpg) no-repeat center;
     height: 100%;
 }
 
@@ -31,6 +31,16 @@ body {
     padding: 3px;
     font-size: 30px;
     color: #f53b57;
+    text-transform: capitalize;
+}
+
+#name.loading{
+    background: url(../images/loader.gif) no-repeat #fff center;
+    padding: 20px 0;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+    width: 41px;
 }
 
 #refresh {
